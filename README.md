@@ -32,7 +32,7 @@ flask-task-api
 
 1. Clone the repository:
    ```
-   git clone https://github.com/NIGASH333/houseofmarktech-backend-task.git
+   git clone <repository-url>
    cd flask-task-api
    ```
 
@@ -62,6 +62,69 @@ flask-task-api
 - **POST /tasks**: Add a new task
 - **GET /tasks**: View all tasks for the logged-in user
 - **DELETE /tasks/<task_id>**: Delete a specific task
+
+## Usage Examples
+
+You can interact with the API using tools like **curl** or **Postman**.
+
+### Register a User
+
+**Endpoint:** `POST /auth/register`  
+**Example with curl:**
+```sh
+curl -X POST http://localhost:5000/auth/register \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"testuser\",\"password\":\"testpass\"}"
+```
+
+### Login
+
+**Endpoint:** `POST /auth/login`  
+**Example with curl:**
+```sh
+curl -X POST http://localhost:5000/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"username\":\"testuser\",\"password\":\"testpass\"}"
+```
+**Response:**  
+```json
+{"token": "your_jwt_token_here"}
+```
+
+### Add a Task
+
+**Endpoint:** `POST /tasks/tasks`  
+**Example with curl:**
+```sh
+curl -X POST http://localhost:5000/tasks/tasks \
+  -H "Content-Type: application/json" \
+  -H "Authorization: your_jwt_token_here" \
+  -d "{\"content\":\"My first task\"}"
+```
+
+### View Tasks
+
+**Endpoint:** `GET /tasks/tasks`  
+**Example with curl:**
+```sh
+curl -X GET http://localhost:5000/tasks/tasks \
+  -H "Authorization: your_jwt_token_here"
+```
+
+### Delete a Task
+
+**Endpoint:** `DELETE /tasks/tasks/<task_id>`  
+**Example with curl:**
+```sh
+curl -X DELETE http://localhost:5000/tasks/tasks/1 \
+  -H "Authorization: your_jwt_token_here"
+```
+
+---
+
+**Note:**  
+- Replace `your_jwt_token_here` with the token you receive from the login endpoint.
+- You can use similar requests in Postman by setting the method, URL, headers, and body as shown above.
 
 ## License
 
