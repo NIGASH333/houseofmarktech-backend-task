@@ -32,7 +32,7 @@ flask-task-api
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/NIGASH333/houseofmarktech-backend-task.git
    cd flask-task-api
    ```
 
